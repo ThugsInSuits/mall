@@ -21,3 +21,7 @@ mybatis-plus:
 
 server:
   port: 8030
+
+user:
+  name11: zhangsan
+  age11: 10
