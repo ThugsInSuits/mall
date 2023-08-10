@@ -44,7 +44,7 @@ spring:
       discovery:
         server-addr: 192.168.2.211:8848
   application:
-    name: renren
+    name: renren-fast
 #  resources:
 #    add-mappings: false
 

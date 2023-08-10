@@ -28,7 +28,6 @@ import com.example.common.utils.Query;
 import com.example.mall.coupon.dao.SeckillSessionDao;
 import com.example.mall.coupon.entity.SeckillSessionEntity;
 import com.example.mall.coupon.service.SeckillSessionService;
-import sun.util.resources.LocaleData;
 
 
 @Service("seckillSessionService")

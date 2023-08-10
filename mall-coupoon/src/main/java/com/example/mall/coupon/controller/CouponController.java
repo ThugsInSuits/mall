@@ -1,9 +1,12 @@
 package com.example.mall.coupon.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,11 @@ import com.example.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+    @Value("${user.name11}")
+    private String name;
+
+    @Value("${user.age11}")
+    private Integer age;
 
     /**
      * 列表
@@ -36,9 +44,12 @@ public class CouponController {
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:coupon:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = couponService.queryPage(params);
-
-        return R.ok().put("page", page);
+//        PageUtils page = couponService.queryPage(params);
+        Map<String,String> map = new HashMap<>();
+        map.put("name",name);
+        map.put("age",Integer.toString(age));
+        JSON.toJSONString(map);
+        return R.ok().put("page", map);
     }
 
 
