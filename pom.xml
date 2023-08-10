@@ -18,5 +18,7 @@
         <module>mall-product</module>
         <module>renren-fast</module>
         <module>mall-commons</module>
+        <module>mall-gateway</module>
+        <module>mall-third-party </module>
     </modules>
 </project>

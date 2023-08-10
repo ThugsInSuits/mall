@@ -5,13 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@MapperScan("com.example.mall.coupon.dao")
-@SpringBootApplication
 @EnableDiscoveryClient
-public class MallCoupoonApplication {
+@SpringBootApplication
+@MapperScan("com.example.mall.coupon.dao")
+public class MallCouponApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MallCoupoonApplication.class, args);
+        SpringApplication.run(MallCouponApplication.class, args);
     }
 
 }
