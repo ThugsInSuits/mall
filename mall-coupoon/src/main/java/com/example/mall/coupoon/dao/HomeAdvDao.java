@@ -1,0 +1,17 @@
+package com.example.mall.coupoon.dao;
+
+import com.example.mall.coupoon.entity.HomeAdvEntity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * 首页轮播广告
+ * 
+ * @author cmp
+ * @email meipengchen6@gmail.com
+ * @date 2023-08-11 23:26:42
+ */
+@Mapper
+public interface HomeAdvDao extends BaseMapper<HomeAdvEntity> {
+	
+}

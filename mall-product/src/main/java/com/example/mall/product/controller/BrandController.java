@@ -3,8 +3,13 @@ package com.example.mall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.mall.product.entity.BrandEntity;
 import com.example.mall.product.service.BrandService;
@@ -18,7 +23,7 @@ import com.example.common.utils.R;
  *
  * @author cmp
  * @email meipengchen6@gmail.com
- * @date 2023-05-22 18:48:59
+ * @date 2023-08-11 23:08:11
  */
 @RestController
 @RequestMapping("product/brand")
@@ -26,18 +31,11 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
-    @GetMapping("/queryAllBrand")
-    public R queryAllBrand(){
-        BrandEntity entity = new BrandEntity();
-        entity.setName("小米");
-        return R.ok().put("brands",entity);
-
-    }
-
     /**
      * 列表
      */
     @RequestMapping("/list")
+    @RequiresPermissions("product:brand:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = brandService.queryPage(params);
 
@@ -49,6 +47,7 @@ public class BrandController {
      * 信息
      */
     @RequestMapping("/info/{brandId}")
+    @RequiresPermissions("product:brand:info")
     public R info(@PathVariable("brandId") Long brandId){
 		BrandEntity brand = brandService.getById(brandId);
 
@@ -59,6 +58,7 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
+    @RequiresPermissions("product:brand:save")
     public R save(@RequestBody BrandEntity brand){
 		brandService.save(brand);
 
@@ -69,6 +69,7 @@ public class BrandController {
      * 修改
      */
     @RequestMapping("/update")
+    @RequiresPermissions("product:brand:update")
     public R update(@RequestBody BrandEntity brand){
 		brandService.updateById(brand);
 
@@ -79,6 +80,7 @@ public class BrandController {
      * 删除
      */
     @RequestMapping("/delete")
+    @RequiresPermissions("product:brand:delete")
     public R delete(@RequestBody Long[] brandIds){
 		brandService.removeByIds(Arrays.asList(brandIds));
 
