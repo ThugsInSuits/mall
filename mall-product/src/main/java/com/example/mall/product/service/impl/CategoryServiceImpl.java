@@ -46,6 +46,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return list;
     }
 
+    /**
+     * 逻辑批量删除
+     * @param list
+     */
+    @Override
+    public void removeCatetoryByIds(List<Long> list) {
+        //1. 检查该数据是否在其他业务中被使用
+
+        //2.
+        baseMapper.deleteBatchIds(list);
+    }
+
     private List<CategoryEntity> getCatetoryChildren(CategoryEntity entity,List<CategoryEntity> categoryEntities) {
         List<CategoryEntity> collect = categoryEntities.stream().filter(category -> {
             return category.getParentCid().equals(entity.getCatId());
