@@ -3,7 +3,7 @@ package com.example.mall.coupoon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class HomeSubjectSpuController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("coupoon:homesubjectspu:list")
+    
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = homeSubjectSpuService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class HomeSubjectSpuController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("coupoon:homesubjectspu:info")
+    
     public R info(@PathVariable("id") Long id){
 		HomeSubjectSpuEntity homeSubjectSpu = homeSubjectSpuService.getById(id);
 
@@ -58,7 +58,7 @@ public class HomeSubjectSpuController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("coupoon:homesubjectspu:save")
+    
     public R save(@RequestBody HomeSubjectSpuEntity homeSubjectSpu){
 		homeSubjectSpuService.save(homeSubjectSpu);
 
@@ -69,7 +69,7 @@ public class HomeSubjectSpuController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("coupoon:homesubjectspu:update")
+    
     public R update(@RequestBody HomeSubjectSpuEntity homeSubjectSpu){
 		homeSubjectSpuService.updateById(homeSubjectSpu);
 
@@ -80,7 +80,7 @@ public class HomeSubjectSpuController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("coupoon:homesubjectspu:delete")
+    
     public R delete(@RequestBody Long[] ids){
 		homeSubjectSpuService.removeByIds(Arrays.asList(ids));
 

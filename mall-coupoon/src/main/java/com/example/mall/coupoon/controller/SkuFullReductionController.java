@@ -3,7 +3,7 @@ package com.example.mall.coupoon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class SkuFullReductionController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("coupoon:skufullreduction:list")
+    
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuFullReductionService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SkuFullReductionController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("coupoon:skufullreduction:info")
+    
     public R info(@PathVariable("id") Long id){
 		SkuFullReductionEntity skuFullReduction = skuFullReductionService.getById(id);
 
@@ -58,7 +58,7 @@ public class SkuFullReductionController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("coupoon:skufullreduction:save")
+    
     public R save(@RequestBody SkuFullReductionEntity skuFullReduction){
 		skuFullReductionService.save(skuFullReduction);
 
@@ -69,7 +69,7 @@ public class SkuFullReductionController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("coupoon:skufullreduction:update")
+    
     public R update(@RequestBody SkuFullReductionEntity skuFullReduction){
 		skuFullReductionService.updateById(skuFullReduction);
 
@@ -80,7 +80,7 @@ public class SkuFullReductionController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("coupoon:skufullreduction:delete")
+    
     public R delete(@RequestBody Long[] ids){
 		skuFullReductionService.removeByIds(Arrays.asList(ids));
 

@@ -3,7 +3,7 @@ package com.example.mall.coupoon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class CouponSpuRelationController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("coupoon:couponspurelation:list")
+    
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = couponSpuRelationService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CouponSpuRelationController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("coupoon:couponspurelation:info")
+    
     public R info(@PathVariable("id") Long id){
 		CouponSpuRelationEntity couponSpuRelation = couponSpuRelationService.getById(id);
 
@@ -58,7 +58,7 @@ public class CouponSpuRelationController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("coupoon:couponspurelation:save")
+    
     public R save(@RequestBody CouponSpuRelationEntity couponSpuRelation){
 		couponSpuRelationService.save(couponSpuRelation);
 
@@ -69,7 +69,7 @@ public class CouponSpuRelationController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("coupoon:couponspurelation:update")
+    
     public R update(@RequestBody CouponSpuRelationEntity couponSpuRelation){
 		couponSpuRelationService.updateById(couponSpuRelation);
 
@@ -80,7 +80,7 @@ public class CouponSpuRelationController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("coupoon:couponspurelation:delete")
+    
     public R delete(@RequestBody Long[] ids){
 		couponSpuRelationService.removeByIds(Arrays.asList(ids));
 

@@ -3,7 +3,7 @@ package com.example.mall.coupoon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class SkuLadderController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("coupoon:skuladder:list")
+    
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuLadderService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SkuLadderController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("coupoon:skuladder:info")
+    
     public R info(@PathVariable("id") Long id){
 		SkuLadderEntity skuLadder = skuLadderService.getById(id);
 
@@ -58,7 +58,7 @@ public class SkuLadderController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("coupoon:skuladder:save")
+    
     public R save(@RequestBody SkuLadderEntity skuLadder){
 		skuLadderService.save(skuLadder);
 
@@ -69,7 +69,7 @@ public class SkuLadderController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("coupoon:skuladder:update")
+    
     public R update(@RequestBody SkuLadderEntity skuLadder){
 		skuLadderService.updateById(skuLadder);
 
@@ -80,7 +80,7 @@ public class SkuLadderController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("coupoon:skuladder:delete")
+    
     public R delete(@RequestBody Long[] ids){
 		skuLadderService.removeByIds(Arrays.asList(ids));
 

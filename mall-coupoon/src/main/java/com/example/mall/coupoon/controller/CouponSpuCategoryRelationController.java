@@ -3,7 +3,7 @@ package com.example.mall.coupoon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class CouponSpuCategoryRelationController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("coupoon:couponspucategoryrelation:list")
+    
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = couponSpuCategoryRelationService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CouponSpuCategoryRelationController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("coupoon:couponspucategoryrelation:info")
+    
     public R info(@PathVariable("id") Long id){
 		CouponSpuCategoryRelationEntity couponSpuCategoryRelation = couponSpuCategoryRelationService.getById(id);
 
@@ -58,7 +58,7 @@ public class CouponSpuCategoryRelationController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("coupoon:couponspucategoryrelation:save")
+    
     public R save(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation){
 		couponSpuCategoryRelationService.save(couponSpuCategoryRelation);
 
@@ -69,7 +69,7 @@ public class CouponSpuCategoryRelationController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("coupoon:couponspucategoryrelation:update")
+    
     public R update(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation){
 		couponSpuCategoryRelationService.updateById(couponSpuCategoryRelation);
 
@@ -80,7 +80,7 @@ public class CouponSpuCategoryRelationController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("coupoon:couponspucategoryrelation:delete")
+    
     public R delete(@RequestBody Long[] ids){
 		couponSpuCategoryRelationService.removeByIds(Arrays.asList(ids));
 
