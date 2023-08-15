@@ -1,16 +1,7 @@
 package com.example.mall.product;
 
-import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyun.oss.model.PutObjectResult;
-import com.example.mall.product.service.BrandService;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest()
 class MallProductApplicationTests {
